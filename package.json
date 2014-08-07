@@ -8,6 +8,9 @@
             "winston": "0.6.x",
             "express-winston": "0.2.x"
 
-        }
-
+        },
+    "scripts": {
+          "start": "node server.js"
+    },
+    "main": "server.js"
 }
