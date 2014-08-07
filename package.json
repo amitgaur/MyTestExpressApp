@@ -1,0 +1,13 @@
+{
+    "name" : "MyMeanApp",
+        "description" : "My App",
+        "dependencies" : {
+            "express"  : "*",
+            "body-parser" : "*",
+            "method-override" : "*",
+            "winston": "0.6.x",
+            "express-winston": "0.2.x"
+
+        }
+
+}
