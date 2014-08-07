@@ -15,8 +15,6 @@ app.use(bodyParser.urlencoded({extended : true}));
 app.use(methodOverride('X-HTTP-Method-Override'));
 app.use(express.static(__dirname + '/public'));
 //winston logger
-
-
 app.use(expressWinston.logger({
     transports: [
     new winston.transports.Console({
@@ -28,12 +26,14 @@ app.use(expressWinston.logger({
     msg: "HTTP {{req.method}} {{req.url}}" // optional: customize the default logging message. E.g. "{{res.statusCode}} {{req.method}} {{res.responseTime}}ms {{req.url}}"
 }));
 require('./app/routes')(app);
-var port = process.env.PORT || 8999;
 
+//ports/serverip
+var server_port = process.env.OPENSHIFT_NODEJS_PORT || 8080
+var server_ip_address = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1'
 
 //===Start it up===
 
-app.listen(port);
+app.listen(server_port);
 
 exports = module.exports = app;
 
