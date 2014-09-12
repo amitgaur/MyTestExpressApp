@@ -9,10 +9,10 @@ var expressWinston = require('express-winston');
 function logger() { 
  return    expressWinston.logger({
         transports: [
-        new winston.transports.Console({
-            json: true,
-            colorize: true
-        }),
+//        new winston.transports.Console({
+//            json: true,
+//            colorize: true
+//        }),
             new winston.transports.File({
                 filename : __dirname + '/log/app.log',
             json: true,
@@ -44,8 +44,7 @@ app.use(express.static(__dirname+'/public'));
 require('./app/routes')(app);
 
 //ports/serverip
-var server_port = process.env.OPENSHIFT_NODEJS_PORT || 8080
-var server_ip_address = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1'
+var server_port = process.env.OPENSHIFT_NODEJS_PORT || 80
 
 //===Start it up===
 
